@@ -72,9 +72,9 @@ open class ContactMessageCell: MessageContentCell {
 
     open override func setupSubviews() {
         super.setupSubviews()
-        messageContainerView.addSubview(initialsContainerView)
-        messageContainerView.addSubview(nameLabel)
-        messageContainerView.addSubview(disclosureImageView)
+        messageContentContainerView.addSubview(initialsContainerView)
+        messageContentContainerView.addSubview(nameLabel)
+        messageContentContainerView.addSubview(disclosureImageView)
         initialsContainerView.addSubview(initialsLabel)
         setupConstraints()
     }
@@ -87,18 +87,18 @@ open class ContactMessageCell: MessageContentCell {
     
     open func setupConstraints() {
         initialsContainerView.constraint(equalTo: CGSize(width: 26, height: 26))
-        let initialsConstraints = initialsContainerView.addConstraints(left: messageContainerView.leftAnchor, centerY: messageContainerView.centerYAnchor,
+        let initialsConstraints = initialsContainerView.addConstraints(left: messageContentContainerView.leftAnchor, centerY: messageContentContainerView.centerYAnchor,
                                                         leftConstant: 5)
         initialsConstraints.first?.identifier = ConstraintsID.initialsContainerLeftConstraint.rawValue
         initialsContainerView.layer.cornerRadius = 13
         initialsLabel.fillSuperview()
         disclosureImageView.constraint(equalTo: CGSize(width: 20, height: 20))
-        let disclosureConstraints = disclosureImageView.addConstraints(right: messageContainerView.rightAnchor, centerY: messageContainerView.centerYAnchor,
+        let disclosureConstraints = disclosureImageView.addConstraints(right: messageContentContainerView.rightAnchor, centerY: messageContentContainerView.centerYAnchor,
                                            rightConstant: -10)
         disclosureConstraints.first?.identifier = ConstraintsID.disclouserRigtConstraint.rawValue
-        nameLabel.addConstraints(messageContainerView.topAnchor,
+        nameLabel.addConstraints(messageContentContainerView.topAnchor,
                                  left: initialsContainerView.rightAnchor,
-                                 bottom: messageContainerView.bottomAnchor,
+                                 bottom: messageContentContainerView.bottomAnchor,
                                  right: disclosureImageView.leftAnchor,
                                  topConstant: 0,
                                  leftConstant: 10,
@@ -117,10 +117,10 @@ open class ContactMessageCell: MessageContentCell {
         guard let dataSource = messagesCollectionView.messagesDataSource else {
             fatalError(MessageKitError.nilMessagesDataSource)
         }
-        let initialsContainerLeftConstraint = messageContainerView.constraints.filter { (constraint) -> Bool in
+        let initialsContainerLeftConstraint = messageContentContainerView.constraints.filter { (constraint) -> Bool in
             return constraint.identifier == ConstraintsID.initialsContainerLeftConstraint.rawValue
         }.first
-        let disclouserRightConstraint = messageContainerView.constraints.filter { (constraint) -> Bool in
+        let disclouserRightConstraint = messageContentContainerView.constraints.filter { (constraint) -> Bool in
             return constraint.identifier == ConstraintsID.disclouserRigtConstraint.rawValue
         }.first
         if dataSource.isFromCurrentSender(message: message) { // outgoing message

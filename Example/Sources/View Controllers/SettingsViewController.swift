@@ -78,6 +78,8 @@ final internal class SettingsViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         configurePickerView()
         configureToolbar()
+
+
     }
     
     // MARK: - TableViewDelegate & TableViewDataSource

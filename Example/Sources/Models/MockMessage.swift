@@ -52,6 +52,12 @@ private struct ImageMediaItem: MediaItem {
         self.placeholderImage = UIImage()
     }
 
+    init(url: URL, image: UIImage) {
+        self.url = url
+        self.size = CGSize(width: 240, height: 240)
+        self.placeholderImage = image
+    }
+
 }
 
 private struct MockAudiotem: AudioItem {
@@ -121,8 +127,8 @@ internal struct MockMessage: MessageType {
         self.init(kind: .photo(mediaItem), user: user, messageId: messageId, date: date)
     }
 
-    init(thumbnail: UIImage, user: MockUser, messageId: String, date: Date) {
-        let mediaItem = ImageMediaItem(image: thumbnail)
+    init(url: URL, thumbnail: UIImage, user: MockUser, messageId: String, date: Date) {
+        let mediaItem = ImageMediaItem(url: url, image: thumbnail)
         self.init(kind: .video(mediaItem), user: user, messageId: messageId, date: date)
     }
 

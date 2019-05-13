@@ -134,6 +134,16 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     // MARK: - Initializers
 
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setupInitializers()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupInitializers()
+    }
+
     deinit {
         removeKeyboardObservers()
         removeMenuControllerObservers()
@@ -142,6 +152,10 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     }
 
     // MARK: - Methods [Private]
+
+    private func setupInitializers() {
+        self.hidesBottomBarWhenPushed = true
+    }
 
     private func setupDefaults() {
         extendedLayoutIncludesOpaqueBars = true
@@ -278,8 +292,12 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
             let cell = messagesCollectionView.dequeueReusableCell(TextMessageCell.self, for: indexPath)
             cell.configure(with: message, at: indexPath, and: messagesCollectionView)
             return cell
-        case .photo, .video:
+        case .photo:
             let cell = messagesCollectionView.dequeueReusableCell(MediaMessageCell.self, for: indexPath)
+            cell.configure(with: message, at: indexPath, and: messagesCollectionView)
+            return cell
+        case .video:
+            let cell = messagesCollectionView.dequeueReusableCell(VideoMessageCell.self, for: indexPath)
             cell.configure(with: message, at: indexPath, and: messagesCollectionView)
             return cell
         case .location:

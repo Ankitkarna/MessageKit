@@ -147,7 +147,7 @@ final class AdvancedExampleViewController: ChatViewController {
                 let color = isOverLimit ? .red : UIColor(white: 0.6, alpha: 1)
                 item.setTitleColor(color, for: .normal)
         }
-        let bottomItems = [.flexibleSpace, charCountButton]
+        let bottomItems = [makeButton(named: "ic_at"), .flexibleSpace, charCountButton]
         messageInputBar.middleContentViewPadding.bottom = 8
         messageInputBar.setStackViewItems(bottomItems, forStack: .bottom, animated: false)
 

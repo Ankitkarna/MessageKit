@@ -31,6 +31,15 @@ open class MessageContentCell: MessageCollectionViewCell {
     open var avatarView = AvatarView()
 
     /// The container used for styling and holding the message's content view.
+    open var messageContentContainerView: MessageContentContainerView = {
+        let containerView = MessageContentContainerView()
+        containerView.clipsToBounds = true
+        containerView.layer.masksToBounds = true
+        return containerView
+    }()
+
+
+    /// The container used for styling and holding the message's content view.
     open var messageContainerView: MessageContainerView = {
         let containerView = MessageContainerView()
         containerView.clipsToBounds = true
@@ -74,6 +83,11 @@ open class MessageContentCell: MessageCollectionViewCell {
     /// The `MessageCellDelegate` for the cell.
     open weak var delegate: MessageCellDelegate?
 
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        messageContentContainerView.frame = messageContainerView.bounds
+    }
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -94,6 +108,9 @@ open class MessageContentCell: MessageCollectionViewCell {
         contentView.addSubview(cellBottomLabel)
         contentView.addSubview(messageContainerView)
         contentView.addSubview(avatarView)
+
+        messageContainerView.addSubview(messageContentContainerView)
+        messageContentContainerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
 
     open override func prepareForReuse() {

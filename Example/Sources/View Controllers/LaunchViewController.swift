@@ -85,7 +85,9 @@ final internal class LaunchViewController: UITableViewController {
         case "Embedded Example":
             navigationController?.pushViewController(MessageContainerController(), animated: true)
         case "Settings":
-            navigationController?.pushViewController(SettingsViewController(), animated: true)
+            let settingcontroller = SettingsViewController()
+            settingcontroller.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(settingcontroller, animated: true)
         case "Source Code":
             guard let url = URL(string: "https://github.com/MessageKit/MessageKit") else { return }
             openURL(url)

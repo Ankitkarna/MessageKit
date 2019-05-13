@@ -58,16 +58,16 @@ open class AudioMessageCell: MessageContentCell {
     /// Responsible for setting up the constraints of the cell's subviews.
     open func setupConstraints() {
         playButton.constraint(equalTo: CGSize(width: 25, height: 25))
-        playButton.addConstraints(left: messageContainerView.leftAnchor, centerY: messageContainerView.centerYAnchor, leftConstant: 5)
-        durationLabel.addConstraints(right: messageContainerView.rightAnchor, centerY: messageContainerView.centerYAnchor, rightConstant: 15)
-        progressView.addConstraints(left: playButton.rightAnchor, right: durationLabel.leftAnchor, centerY: messageContainerView.centerYAnchor, leftConstant: 5, rightConstant: 5)
+        playButton.addConstraints(left: messageContentContainerView.leftAnchor, centerY: messageContentContainerView.centerYAnchor, leftConstant: 5)
+        durationLabel.addConstraints(right: messageContentContainerView.rightAnchor, centerY: messageContentContainerView.centerYAnchor, rightConstant: 15)
+        progressView.addConstraints(left: playButton.rightAnchor, right: durationLabel.leftAnchor, centerY: messageContentContainerView.centerYAnchor, leftConstant: 5, rightConstant: 5)
     }
 
     open override func setupSubviews() {
         super.setupSubviews()
-        messageContainerView.addSubview(playButton)
-        messageContainerView.addSubview(durationLabel)
-        messageContainerView.addSubview(progressView)
+        messageContentContainerView.addSubview(playButton)
+        messageContentContainerView.addSubview(durationLabel)
+        messageContentContainerView.addSubview(progressView)
         setupConstraints()
     }
 
@@ -84,7 +84,7 @@ open class AudioMessageCell: MessageContentCell {
         // compute play button touch area, currently play button size is (25, 25) which is hardly touchable
         // add 10 px around current button frame and test the touch against this new frame
         let playButtonTouchArea = CGRect(playButton.frame.origin.x - 10.0, playButton.frame.origin.y - 10, playButton.frame.size.width + 20, playButton.frame.size.height + 20)
-        let translateTouchLocation = convert(touchLocation, to: messageContainerView)
+        let translateTouchLocation = convert(touchLocation, to: messageContentContainerView)
         if playButtonTouchArea.contains(translateTouchLocation) {
             delegate?.didTapPlayButton(in: self)
         } else {
@@ -101,8 +101,8 @@ open class AudioMessageCell: MessageContentCell {
             fatalError(MessageKitError.nilMessagesDataSource)
         }
 
-        let playButtonLeftConstraint = messageContainerView.constraints.filter { $0.identifier == "left" }.first
-        let durationLabelRightConstraint = messageContainerView.constraints.filter { $0.identifier == "right" }.first
+        let playButtonLeftConstraint = messageContentContainerView.constraints.filter { $0.identifier == "left" }.first
+        let durationLabelRightConstraint = messageContentContainerView.constraints.filter { $0.identifier == "right" }.first
 
         if !dataSource.isFromCurrentSender(message: message) {
             playButtonLeftConstraint?.constant = 12

@@ -175,7 +175,8 @@ final internal class SampleData {
         case .Video:
             let randomNumberImage = Int(arc4random_uniform(UInt32(messageImages.count)))
             let image = messageImages[randomNumberImage]
-            return MockMessage(thumbnail: image, user: user, messageId: uniqueID, date: date)
+            let url = URL(string: "https://s3-ap-southeast-2.amazonaws.com/petbook-app/profile/C4BC7CDA-6ABC-49E3-8182-0E6531F48B23")!
+            return MockMessage(url: url, thumbnail: image, user: user, messageId: uniqueID, date: date)
         case .Audio:
             let randomNumberSound = Int(arc4random_uniform(UInt32(sounds.count)))
             let soundURL = sounds[randomNumberSound]

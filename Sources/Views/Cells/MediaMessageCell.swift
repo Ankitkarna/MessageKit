@@ -51,8 +51,8 @@ open class MediaMessageCell: MessageContentCell {
 
     open override func setupSubviews() {
         super.setupSubviews()
-        messageContainerView.addSubview(imageView)
-        messageContainerView.addSubview(playButtonView)
+        messageContentContainerView.addSubview(imageView)
+        messageContentContainerView.addSubview(playButtonView)
         setupConstraints()
     }
     

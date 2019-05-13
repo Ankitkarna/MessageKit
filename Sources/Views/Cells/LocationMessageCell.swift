@@ -39,8 +39,8 @@ open class LocationMessageCell: MessageContentCell {
     open override func setupSubviews() {
         super.setupSubviews()
         imageView.contentMode = .scaleAspectFill
-        messageContainerView.addSubview(imageView)
-        messageContainerView.addSubview(activityIndicator)
+        messageContentContainerView.addSubview(imageView)
+        messageContentContainerView.addSubview(activityIndicator)
         setupConstraints()
     }
 

@@ -37,6 +37,7 @@
 		2DEA666C2289774000EDCA58 /* VideoMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEA666B2289774000EDCA58 /* VideoMessageCell.swift */; };
 		2DEA666F2289775400EDCA58 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEA666D2289775400EDCA58 /* VideoPlayerView.swift */; };
 		2DEA66702289775400EDCA58 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEA666E2289775400EDCA58 /* VideoPlayer.swift */; };
+		2DEA6678228AE3C500EDCA58 /* MessageContentContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEA6677228AE3C400EDCA58 /* MessageContentContainerView.swift */; };
 		382C794221705D2000F4FAF5 /* HorizontalEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382C794121705D2000F4FAF5 /* HorizontalEdgeInsets.swift */; };
 		383B9EB121728BAD008AB91A /* SenderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B9EB021728BAD008AB91A /* SenderType.swift */; };
 		388119462253EC30004B26AF /* TypingIndicatorCellSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388119452253EC30004B26AF /* TypingIndicatorCellSizeCalculator.swift */; };
@@ -152,6 +153,7 @@
 		2DEA666B2289774000EDCA58 /* VideoMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoMessageCell.swift; sourceTree = "<group>"; };
 		2DEA666D2289775400EDCA58 /* VideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		2DEA666E2289775400EDCA58 /* VideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		2DEA6677228AE3C400EDCA58 /* MessageContentContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContentContainerView.swift; sourceTree = "<group>"; };
 		382C794121705D2000F4FAF5 /* HorizontalEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalEdgeInsets.swift; sourceTree = "<group>"; };
 		383B9EB021728BAD008AB91A /* SenderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderType.swift; sourceTree = "<group>"; };
 		388119452253EC30004B26AF /* TypingIndicatorCellSizeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingIndicatorCellSizeCalculator.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 		B096439A1F295D68004D0129 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2DEA6677228AE3C400EDCA58 /* MessageContentContainerView.swift */,
 				2DEA666E2289775400EDCA58 /* VideoPlayer.swift */,
 				2DEA666D2289775400EDCA58 /* VideoPlayerView.swift */,
 				2EB618F01F84676A007FBA0E /* Cells */,
@@ -685,6 +688,7 @@
 				B7A03F471F86694F006AEF79 /* MessageLabel.swift in Sources */,
 				50FF345B2237FE9C0004DCD7 /* ContactMessageSizeCalculator.swift in Sources */,
 				B7A03F5F1F8669CA006AEF79 /* MessageLabelDelegate.swift in Sources */,
+				2DEA6678228AE3C500EDCA58 /* MessageContentContainerView.swift in Sources */,
 				B7A03F4C1F86694F006AEF79 /* PlayButtonView.swift in Sources */,
 				1FD5896420660C1C004B5081 /* LocationItem.swift in Sources */,
 				B7A03F291F866895006AEF79 /* Sender.swift in Sources */,
